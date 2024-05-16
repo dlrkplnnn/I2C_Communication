@@ -25,16 +25,17 @@ while True:
         response = i2c.readfrom(arduino_address, 2)  # Reading 2 bytes of response
         print("Response from Arduino Uno:", response)
         
-        if response==b'Pi':
+        if response==b'Pi': # If the response from the Arduino is the same as the 'Pi' message, start the motor.
             in1.value(0)
             in2.value(1)
             time.sleep(1)
-        else:
-            in1.value(1)
-            in2.value(1)
+        else: # If the response from the Arduino does not match the 'Pi' message, stop the motor.
+            in1.value(0)
+            in2.value(0)
             time.sleep(1)
             
             
     except Exception as e:
         print("Error:", e)
+
 
