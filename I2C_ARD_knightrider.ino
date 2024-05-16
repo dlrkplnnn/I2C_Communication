@@ -1,7 +1,7 @@
 #include <Wire.h>
 
 #define ARDUINO_ADDRESS 8
-const int ledler[]={2,3,4,5,6};
+const int leds[]={2,3,4,5,6};
 
 
 void setup() 
@@ -14,7 +14,7 @@ void setup()
   Serial.begin(9600);
   for(int i=0; i<5; i++)
   {
-    pinMode(ledler[i], OUTPUT);
+    pinMode(leds[i], OUTPUT);
   }
   
 }
@@ -51,16 +51,16 @@ void knightrider()
     for(int i=0; i<5; i++)
     { /* turns all LEDs on and off sequentially for 5 seconds */
       Serial.println("forward"); 
-      digitalWrite(ledler[i],HIGH);      
+      digitalWrite(leds[i],HIGH);      
       delay(5000);                           
-      digitalWrite(ledler[i],LOW);          
+      digitalWrite(leds[i],LOW);          
     }
  
     for(int j=4;j>-1; j--)
-    { /* turs the LEDs on and off for 5 seconds in the reverse direction. */
+    { /* turns the LEDs on and off for 5 seconds in the reverse direction. */
       Serial.println("reverse"); 
-      digitalWrite(ledler[j],HIGH);     
+      digitalWrite(leds[j],HIGH);     
       delay(5000);
-      digitalWrite(ledler[j], LOW);
+      digitalWrite(leds[j], LOW);
     }
 }
